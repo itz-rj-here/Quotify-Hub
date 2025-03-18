@@ -67,11 +67,13 @@ By default, the server will run on `http://localhost:3000`
 ## 📡 API Endpoints
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| `/api/random` | GET | Returns a random quote |
-| `/api/quotes` | GET | Returns all available quotes |
-| `/api/quotes?category=motivation` | GET | Fetch quotes from a specific category |
-| `/api/quotes/id/:id` | GET | Fetch a quote by its ID |
-| `/api/quotes/category/:category` | GET | Fetch quotes by category |
+| `/random` | GET | Returns a random quote |
+| `/random?category=motivation` | GET | Returns a random quote from a specific category |
+| `/random?limit=10` | GET | Returns multiple random quotes (limit specified) |
+| `/quotes` | GET | Returns all available quotes |
+| `/quotes?category=motivation` | GET | Fetch quotes from a specific category |
+| `/quotes?limit=10` | GET | Fetch a limited number of quotes |
+| `/quotes/id/:id` | GET | Fetch a quote by its ID |
 
 ## 🔗 Credits & Inspiration
 This project was **forked and inspired by** [Quotes-API](https://github.com/theriturajps/Quotes-API). The original author of this repository is **[Ritu Raj Pratap Singh](https://github.com/theriturajps)**.
