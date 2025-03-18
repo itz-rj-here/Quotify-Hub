@@ -1,171 +1,98 @@
-# Quotes API
+# Quotify Hub
 
-![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black) ![Vercel](https://img.shields.io/badge/Vercel-000000.svg?style=for-the-badge&logo=Vercel&logoColor=white)
+[![Website](https://img.shields.io/badge/Website-Live-brightgreen)](https://quotifyhub.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/itz-rj-here/Quotify-Hub)
+[![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
-Welcome to the Quotes API! Access a vast collection of motivational quotes designed to enhance your applications. This free and open API is easy to integrate into your projects, helping you inspire and motivate your users effectively.
+## 📝 Inspire Your Apps with Quotes
 
-<div align='center'>
-  <br>
-  <img src="https://github.com/user-attachments/assets/b989a196-34e8-4b42-9e9a-9351608a2248" alt="Free-Quotes-API-A-free-and-Open-Source-Quotes-API">
-  <br>
-</div>
+**Quotify Hub** is a free and open-source API that provides a vast collection of inspiring quotes. Whether you're developing an application, looking for daily motivation, or working on a creative project, Quotify Hub has you covered!
 
-## Technologies Used
+## 🚀 Live Website & API
 
-- **Language**: JavaScript
-- **Backend**: Express.js
-- **Hosting**: Vercel
+🌍 **Live Website:** [Quotify Hub](https://quotifyhub.vercel.app/)
 
-## Getting Started
+🛠️ **API Endpoint:** `https://quotifyhub.vercel.app/api/random`
 
-To get started with the API, you can make requests to the following endpoints to get quotes:
-
-### Get a Random Quote
-
-```
-GET https://qapi.vercel.app/api/random
-```
-
-This will return a JSON response with a random quote and its author.
-
-### Get All Quotes
-
-```
-GET https://qapi.vercel.app/api/quotes
-```
-
-This will return a JSON response with all quotes in the collection.
-
-### Get Quote by ID
-
-```
-GET https://qapi.vercel.app/api/quotes/{id}
-```
-
-Replace `{id}` with the specific ID of the quote you want to fetch. This will return a JSON response with the quote and its author.
-
-## Example Responses
-
-### Random Quote
-
+✅ **Example Response:**
 ```json
 {
-    "id" : 1, 
-    "quote": "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.",
-    "author": "Albert Schweitzer"
+  "id": 1,
+  "quote": "The only limit to our realization of tomorrow is our doubts of today.",
+  "author": "Franklin D. Roosevelt",
+  "category": "Motivation"
 }
 ```
 
-### All Quotes
+## 📌 Features
+- 🌟 **Thousands of curated quotes** across various categories.
+- 🔗 **RESTful API** for easy integration into web or mobile apps.
+- ⚡ **Fast and reliable** with JSON responses.
+- 📂 **Filter quotes by category or author**.
+- 📊 **Rate-limited API** to prevent abuse.
+- 💡 **Open-source** and customizable.
 
-```json
-[
-    {
-        "id": 1,
-        "quote": "The best way to get started is to quit talking and begin doing.",
-        "author": "Walt Disney"
-    },
-    {
-        "id": 2,
-        "quote": "The pessimist sees difficulty in every opportunity. The optimist sees opportunity in every difficulty.",
-        "author": "Winston Churchill"
-    },
-    {
-        "id": 3,
-        "quote": "Don’t let yesterday take up too much of today.",
-        "author": "Will Rogers"
-    }
-]
+## 📂 Project Structure
+```
+├── index.html   # The main frontend of Quotify Hub
+├── index.js     # The backend logic and server setup
+├── quotes.js    # The quotes data file
+├── package.json # Project dependencies
+├── vercel.json  # Deployment configuration
+└── README.md    # Documentation file
 ```
 
-### Quote by ID
+## ⚙️ Installation & Setup
+To run this project locally, follow these steps:
 
-```json
-{
-    "id": 1,
-    "quote": "The best way to get started is to quit talking and begin doing.",
-    "author": "Walt Disney"
-}
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/itz-rj-here/Quotify-Hub.git
+cd Quotify-Hub
 ```
 
-## Rate Limiting
-- **Window Duration**: 15 minutes
-- **Maximum Requests**: 200 requests per IP within the window duration
-- **Response on Limit Exceed**: A 429 Too Many Requests status code with the following JSON response
-
-```json
-{
-  "message": "Too many requests from this IP, please try again after 15 minutes"
-}
-```
-
-## Usage
-
-You can use the API to display quotes on your website or application to motivate your users. Here are some examples of how you can use the API with JavaScript:
-
-### Get Random Quote
-
-```javascript
-fetch('https://qapi.vercel.app/api/random')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.quote);
-        console.log("- " + data.author);
-    });
-```
-
-### Get All Quotes
-
-```javascript
-fetch('https://qapi.vercel.app/api/quotes')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(quote => {
-            console.log(quote.quote);
-            console.log("- " + quote.author);
-        });
-    });
-```
-
-### Get Quote by ID
-
-```javascript
-const quoteId = 1; // Example ID
-fetch(`https://qapi.vercel.app/api/quotes/${quoteId}`)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.quote);
-        console.log("- " + data.author);
-    });
-```
-
-## Installation
-
-1. Clone this repository:
-```
-git clone https://github.com/theriturajps/quotes-api.git
-```
-2. Go inside Folder
-```
-cd quotes-api
-```
-3. Install the dependencies:
-```
+### 2️⃣ Install Dependencies
+```sh
 npm install
 ```
-3.Start the server:
-```
+
+### 3️⃣ Run the Server Locally
+```sh
 npm start
 ```
+By default, the server will run on `http://localhost:3000`
 
-## License
+---
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## 📡 API Endpoints
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/random` | GET | Returns a random quote |
+| `/api/quotes` | GET | Returns all available quotes |
+| `/api/quotes?category=motivation` | GET | Fetch quotes from a specific category |
+| `/api/quotes/id/:id` | GET | Fetch a quote by its ID |
+| `/api/quotes/category/:category` | GET | Fetch quotes by category |
 
-## More Details
+## 🔗 Credits & Inspiration
+This project was **forked and inspired by** [Quotes-API](https://github.com/theriturajps/Quotes-API). The original author of this repository is **[Ritu Raj Pratap Singh](https://github.com/theriturajps)**.
 
-<a href="https://github.com/theriturajps">![Github](https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white)</a> <a href="https://telegram.me/riturajps">![Telegram](https://img.shields.io/badge/Telegram-26A5E4.svg?style=for-the-badge&logo=Telegram&logoColor=white)</a> <a href="https://instagram.com/riturajps">![Instagram](https://img.shields.io/badge/Instagram-E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)</a>
+## 📜 License
+This project is licensed under the **MIT License**, meaning you can freely use, modify, and distribute it. See the [LICENSE](LICENSE) file for details.
 
+## 🤝 Contributing
+Contributions are welcome! If you’d like to improve this project, feel free to:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit (`git commit -m "Added a new feature"`).
+4. Push your changes (`git push origin feature-branch`).
+5. Open a **Pull Request**.
 
-- **Developer :-** @theriturajps
-- **Fork :-** [Fork this Repo](https://github.com/theriturajps/Quotes-API/fork)
+## 📬 Connect
+💻 **GitHub:** [Quotify Hub Repo](https://github.com/itz-rj-here/Quotify-Hub)
+
+📧 **Contact:** Open an issue in the GitHub repo for support.
+
+💖 If you like this project, don't forget to ⭐ the repository!
+
+Happy coding! 🚀
+
