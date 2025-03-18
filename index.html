@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quotify Hub - Inspire Your Apps</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+body {
+    user-select: none;
+}
+.no-pointer {
+    cursor: default !important;
+}
+:where([class^="ri-"])::before { content: "\f3c2"; }
+</style>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#10B981',
+secondary: '#6366F1'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+</head>
+<body class="bg-gray-900 min-h-screen">
+<nav class="fixed top-0 left-0 right-0 bg-gray-900/80 backdrop-blur-sm z-50 border-b border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16">
+<div class="flex items-center">
+<a href="/" class="text-2xl font-['Pacifico'] text-primary">Quotify Hub</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="/" class="text-gray-300 hover:text-primary transition-colors">Home</a>
+<a href="#" class="text-gray-300 hover:text-primary transition-colors">Documentation</a>
+<a href="https://quotifyhub.vercel.app/api/random" class="text-gray-300 hover:text-primary transition-colors">Examples</a>
+<a href="https://github.com/itz-rj-here/Quotify-Hub" class="flex items-center text-gray-300 hover:text-primary transition-colors">
+<i class="ri-github-line mr-1"></i> GitHub
+</a>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-16">
+<section class="relative bg-gradient-to-br from-gray-800 to-gray-900">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+<div class="text-center max-w-3xl mx-auto">
+<h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+Inspire Your Apps with Quotes
+</h1>
+<p class="text-xl text-gray-300 mb-12">
+Access thousands of curated inspirational and motivational quotes through our powerful and free API
+</p>
+<div class="bg-gray-900 rounded-lg p-6 mb-8">
+<div class="flex items-center bg-black rounded mb-4">
+<input type="text" value="https://quotifyhub.vercel.app/api/random" class="flex-1 bg-transparent text-green-400 px-4 py-3 font-mono text-sm border-none focus:outline-none" readonly>
+<button class="copy-btn bg-gray-800 text-white px-4 py-2 rounded-r hover:bg-gray-700 transition-colors !rounded-button">
+<i class="ri-file-copy-line"></i>
+</button>
+</div>
+<div class="flex gap-4">
+<select id="categorySelect" class="flex-1 bg-gray-800 text-white px-4 py-2 rounded !rounded-button cursor-pointer">
+<option value="">All Categories</option>
+<option value="motivation">Motivation</option>
+<option value="innovation">Innovation</option>
+<option value="life">Life</option>
+<option value="happiness">Happiness</option>
+<option value="work">Work</option>
+<option value="dreams">Dreams</option>
+<option value="action">Action</option>
+<option value="change">Change</option>
+<option value="positivity">Positivity</option>
+<option value="self">Self</option>
+<option value="future">Future</option>
+<option value="risk">Risk</option>
+<option value="age">Age</option>
+</select>
+<button id="generateBtn" class="bg-primary text-white px-8 py-2 font-medium hover:bg-primary/90 transition-colors !rounded-button">
+Generate Quote
+</button>
+</div>
+</div>
+<div id="quoteResult" class="bg-gray-800 rounded-lg p-6 text-left">
+<pre class="text-gray-200 whitespace-pre-wrap font-mono text-sm"></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-center mb-16 text-white">Why Choose Our API?</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 transition-all duration-300 hover:scale-105 hover:bg-gray-700 hover:border-primary/50 group no-pointer">
+        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+          <i class="ri-code-line text-primary text-2xl group-hover:scale-110 transition-transform"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-primary transition-colors">Simple Integration</h3>
+        <p class="text-gray-300">Just one API call to get started - no complex setup needed</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 transition-all duration-300 hover:scale-105 hover:bg-gray-700 hover:border-primary/50 group no-pointer">
+        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+          <i class="ri-shield-check-line text-primary text-2xl group-hover:scale-110 transition-transform"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-primary transition-colors">99.9% Uptime</h3>
+        <p class="text-gray-300">Enterprise-grade reliability you can count on</p>
+      </div>
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-700 transition-all duration-300 hover:scale-105 hover:bg-gray-700 hover:border-primary/50 group no-pointer">
+        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+          <i class="ri-filter-3-line text-primary text-2xl group-hover:scale-110 transition-transform"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-primary transition-colors">Smart Filtering</h3>
+        <p class="text-gray-300">Filter quotes by category, author, or length instantly</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-gray-800 text-white py-24">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-3xl font-bold mb-8">Try Out Our Quotes API Now</h2>
+<p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+Experience the power of our API firsthand. No sign-up required - start integrating inspiring quotes into your projects instantly
+</p>
+<button class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors !rounded-button">
+Start Using API
+</button>
+</div>
+</section>
+</main>
+<footer class="bg-gray-800 text-gray-400 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid md:grid-cols-4 gap-8">
+<div>
+<h3 class="font-['Pacifico'] text-white text-xl mb-4">Quotify Hub</h3>
+<p class="text-sm">Empowering developers with inspirational content since 2024</p>
+</div>
+<div>
+<h4 class="font-semibold text-white mb-4">Product</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+<li><a href="https://quotifyhub.vercel.app/api/random" class="hover:text-white transition-colors">Examples</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-white mb-4">Support</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="https://github.com/itz-rj-here/Quotify-Hub/issues/new/choose" class="hover:text-white transition-colors">Help Center</a></li>
+<li><a href="#" class="hover:text-white transition-colors">API Status</a></li>
+</ul>
+</div>
+<!-- <div>
+<h4 class="font-semibold text-white mb-4">Legal</h4>
+<ul class="space-y-2 text-sm">
+<li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+<li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+</ul> -->
+</div>
+</div>
+</div>
+</footer>
+<script>
+const copyBtn = document.querySelector('.copy-btn');
+const urlInput = document.querySelector('input[type="text"]');
+const generateBtn = document.getElementById('generateBtn');
+const quoteResult = document.getElementById('quoteResult').querySelector('pre');
+const categorySelect = document.getElementById('categorySelect');
+const baseUrl = 'https://quotifyhub.vercel.app/api/random';
+function updateApiUrl() {
+const category = categorySelect.value;
+urlInput.value = category ? `${baseUrl}?category=${category}` : baseUrl;
+}
+categorySelect.addEventListener('change', () => {
+updateApiUrl();
+generateQuote();
+});
+copyBtn.addEventListener('click', () => {
+navigator.clipboard.writeText(urlInput.value);
+copyBtn.innerHTML = '<i class="ri-check-line"></i>';
+setTimeout(() => {
+copyBtn.innerHTML = '<i class="ri-file-copy-line"></i>';
+}, 2000);
+});
+const mockQuotes = [
+{
+quote: "The only way to do great work is to love what you do.",
+author: "Steve Jobs",
+category: "motivation"
+},
+{
+quote: "Innovation distinguishes between a leader and a follower.",
+author: "Steve Jobs",
+category: "leadership"
+},
+{
+quote: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+author: "Winston Churchill",
+category: "success"
+},
+{
+quote: "Your time is limited, don't waste it living someone else's life.",
+author: "Steve Jobs",
+category: "motivation"
+},
+{
+quote: "Leadership is not about being in charge. It's about taking care of those in your charge.",
+author: "Simon Sinek",
+category: "leadership"
+},
+{
+quote: "The road to success and the road to failure are almost exactly the same.",
+author: "Colin R. Davis",
+category: "success"
+}
+];
+async function generateQuote() {
+try {
+const selectedCategory = categorySelect.value;
+const url = selectedCategory ? `${baseUrl}?category=${selectedCategory}` : baseUrl;
+const response = await fetch(url);
+const data = await response.json();
+quoteResult.textContent = JSON.stringify(data, null, 2);
+} catch (error) {
+quoteResult.textContent = JSON.stringify({
+error: "Failed to fetch quote. Please try again later."
+}, null, 2);
+}
+}
+generateBtn.addEventListener('click', generateQuote);
+generateQuote();
+</script>
+</body>
+</html>
